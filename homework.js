@@ -84,16 +84,17 @@ function base(state) {
 
 function calc(state, itemType) {
     var itemTypeTaxModifier = itemTypes[itemType];
-    if (itemTypeTaxModifier[state] === "") {
+    if (!(itemType in itemTypes)){
+        return base(state);
+    } else if (itemTypeTaxModifier[state] === "") {
         return 0;
     }
     return base(state) + itemTypeTaxModifier[state];
 }
 
 function calculatePriceFor(state,item){
-    var type = items[item].type;
-    var tax =  type in itemTypes ? calc(state,type):base(state);
-    return (1+tax)*(items[item].price);
+    var itemObj = items[item];
+    return (1+calc(state,itemObj.type))*(itemObj.price);
 }
 
 
