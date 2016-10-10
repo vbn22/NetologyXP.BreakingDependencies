@@ -82,6 +82,13 @@ function base(state) {
     return taxes[state];
 }
 
+class State {
+    constructor(baseTax, itemTypeTax) {
+        this._baseTax = baseTax;
+        this._itemTypeTax = itemTypeTax;
+    };
+}
+
 function calc(state, itemType) {
     var itemTypeTaxModifier = itemTypes[itemType];
     if (!(itemType in itemTypes)){
