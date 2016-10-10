@@ -121,13 +121,9 @@ function getState(name){
     }
 }
 
-function calc(state, itemType) {
-    return getState(state).calcTax(itemType);
-}
-
 function calculatePriceFor(state,item){
     var itemObj = items[item];
-    return (1+calc(state,itemObj.type))*(itemObj.price);
+    return (1 + getState(state).calcTax(itemObj.type)) * (itemObj.price);
 }
 
 
