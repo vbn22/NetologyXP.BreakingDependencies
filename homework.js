@@ -91,6 +91,15 @@ class State {
 
     get name() {
         return this._name;
+    };
+
+    calcTax(itemType) {
+        if (!(itemType in this._itemTypeTax)){
+            return this._baseTax;
+        } else if (this._itemTypeTax[itemType] === "") {
+            return 0;
+        }
+        return this._baseTax + this._itemTypeTax[itemType];
     }
 }
 
