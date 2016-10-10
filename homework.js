@@ -122,13 +122,7 @@ function getState(name){
 }
 
 function calc(state, itemType) {
-    var itemTypeTaxModifier = itemTypes[itemType];
-    if (!(itemType in itemTypes)){
-        return base(state);
-    } else if (itemTypeTaxModifier[state] === "") {
-        return 0;
-    }
-    return base(state) + itemTypeTaxModifier[state];
+    return getState(state).calcTax(itemType);
 }
 
 function calculatePriceFor(state,item){
