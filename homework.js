@@ -100,7 +100,13 @@ class State {
             return 0;
         }
         return this._baseTax + this._itemTypeTax[itemType];
+    };
+
+    priceFor(item){
+        var itemObj = items[item];
+        return (1 + this.calcTax(itemObj.type)) * (itemObj.price);
     }
+
 }
 
 var states = [
