@@ -83,11 +83,23 @@ function base(state) {
 }
 
 class State {
-    constructor(baseTax, itemTypeTax) {
+    constructor(name, baseTax, itemTypeTax) {
+        this._name = name;
         this._baseTax = baseTax;
         this._itemTypeTax = itemTypeTax;
     };
 }
+
+var states = [
+    new State("Alabama",0.04,{"Groceries":0,"PrescriptionDrug":""}),
+    new State("Alaska",0,{"Groceries":0,"PrescriptionDrug":0}),
+    new State("Arizona",0.056,{"Groceries":"","PrescriptionDrug":""}),
+    new State("Arkansas",0.065,{"Groceries":0.015,"PrescriptionDrug":""}),
+    new State("California",0.075,{"Groceries":"","PrescriptionDrug":""}),
+    new State("Colorado",0.029,{"Groceries":"","PrescriptionDrug":""}),
+    new State("Connecticut",0.0635,{"Groceries":"","PrescriptionDrug":""}),
+]
+
 
 function calc(state, itemType) {
     var itemTypeTaxModifier = itemTypes[itemType];
