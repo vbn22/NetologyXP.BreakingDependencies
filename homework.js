@@ -127,10 +127,6 @@ function getState(name){
     }
 }
 
-function calculatePriceFor(state,item){
-    return getState(state).priceFor(item);
-}
-
 
 class TaxCalculator {
     // У этой функции нелья менять интерфейс
@@ -141,7 +137,7 @@ class TaxCalculator {
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = getSelectedItem();
-            var result = calculatePriceFor(state,item);
+            var result = getState(state).priceFor(item);
             console.log(`${item}: $${result.toFixed(2)}`);
         }
         console.log(`----Have a nice day!-----`);
@@ -155,11 +151,11 @@ class TaxCalculator {
 //############################
 //Тесты:
 var tests = [
-    () => assertEquals(3.0 * (1 + 0.04), calculatePriceFor("Alabama", "eggs")),
-    () => assertEquals(0.4 * (1 + 0.015 + 0.065), calculatePriceFor("Arkansas", "coca-cola")),
-    () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("Alaska", "amoxicillin")),
-    () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("California", "amoxicillin")),
-    () => assertEquals(2 * (1 + 0.0635), calculatePriceFor("Connecticut", "hamburger")),
+    () => assertEquals(3.0 * (1 + 0.04), getState("Alabama").priceFor("eggs")),
+    () => assertEquals(0.4 * (1 + 0.015 + 0.065), getState("Arkansas").priceFor("coca-cola")),
+    () => assertEquals(6.7 * (1 + 0.0), getState("Alaska").priceFor("amoxicillin")),
+    () => assertEquals(6.7 * (1 + 0.0), getState("California").priceFor("amoxicillin")),
+    () => assertEquals(2 * (1 + 0.0635), getState("Connecticut").priceFor("hamburger")),
 ];
 //Раскомментируйте следующую строчку для запуска тестов:
 runTests (tests);
