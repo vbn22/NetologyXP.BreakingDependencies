@@ -87,9 +87,6 @@ var states = [
     new State("Texas",0.0625,{"Groceries":"","PrescriptionDrug":"","PreparedFood":0}),
 ]
 
-
-
-
 function getState(name){
     for (var i = 0; i < states.length; i++) {
         if (name === states[i].name){
@@ -97,7 +94,6 @@ function getState(name){
         }
     }
 }
-
 
 class TaxCalculator {
     // У этой функции нелья менять интерфейс
@@ -130,8 +126,6 @@ var tests = [
     () => assertEquals(3.0 * (1 + 0.07 + 0.05), getState("Tennessee").priceFor("eggs")),
     () => assertEquals(2 * (1 + 0.0625), getState("Texas").priceFor("hamburger")),
 ];
-
-
 
 //Раскомментируйте следующую строчку для запуска тестов:
 runTests (tests);
