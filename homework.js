@@ -88,6 +88,10 @@ class State {
         this._baseTax = baseTax;
         this._itemTypeTax = itemTypeTax;
     };
+
+    get name() {
+        return this._name;
+    }
 }
 
 var states = [
@@ -100,6 +104,13 @@ var states = [
     new State("Connecticut",0.0635,{"Groceries":"","PrescriptionDrug":""}),
 ]
 
+function getState(name){
+    for (var i = 0; i < states.length; i++) {
+        if (name === states[i].name){
+            return states[i];
+        }
+    }
+}
 
 function calc(state, itemType) {
     var itemTypeTaxModifier = itemTypes[itemType];
