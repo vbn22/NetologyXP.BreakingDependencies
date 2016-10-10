@@ -47,40 +47,6 @@ var items = {
     "ceasar salad": {price: 4.2, type: "PreparedFood"},
 };
 
-var itemTypes =
-    {
-        "Groceries": {
-            "Alabama" : 0,
-            "Alaska" : 0,
-            "Arizona" : "",
-            "Arkansas" : 0.015,
-            "California" : "",
-            "Colorado" : "",
-            "Connecticut" : ""
-        },
-        "PrescriptionDrug": {
-            "Alabama" : "",
-            "Alaska" : 0,
-            "Arizona" : "",
-            "Arkansas" : "",
-            "California" : "",
-            "Colorado" : "",
-            "Connecticut" : ""
-        }
-    };
-
-function base(state) {
-    var taxes = {
-        "Alabama" : 0.04,
-        "Alaska" : 0,
-        "Arizona" : 0.056,
-        "Arkansas" : 0.065,
-        "California" : 0.075,
-        "Colorado" : 0.029,
-        "Connecticut" : 0.0635
-    };
-    return taxes[state];
-}
 
 class State {
     constructor(name, baseTax, itemTypeTax) {
