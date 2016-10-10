@@ -83,7 +83,12 @@ var states = [
     new State("California",0.075,{"Groceries":"","PrescriptionDrug":""}),
     new State("Colorado",0.029,{"Groceries":"","PrescriptionDrug":""}),
     new State("Connecticut",0.0635,{"Groceries":"","PrescriptionDrug":""}),
+    new State("Tennessee",0.07,{"Groceries":0.05,"PrescriptionDrug":0,"PreparedFood":0}),
+    new State("Texas",0.0625,{"Groceries":"","PrescriptionDrug":"","PreparedFood":0}),
 ]
+
+
+
 
 function getState(name){
     for (var i = 0; i < states.length; i++) {
@@ -122,7 +127,12 @@ var tests = [
     () => assertEquals(6.7 * (1 + 0.0), getState("Alaska").priceFor("amoxicillin")),
     () => assertEquals(6.7 * (1 + 0.0), getState("California").priceFor("amoxicillin")),
     () => assertEquals(2 * (1 + 0.0635), getState("Connecticut").priceFor("hamburger")),
+    () => assertEquals(3.0 * (1 + 0.07 + 0.05), getState("Tennessee").priceFor("eggs")),
+    () => assertEquals(2 * (1 + 0.0625), getState("Texas").priceFor("hamburger")),
 ];
+
+
+
 //Раскомментируйте следующую строчку для запуска тестов:
 runTests (tests);
 
